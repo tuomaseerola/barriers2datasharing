@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  page-footer: 
+    right: 
+      - icon: github
+        href: https://github.com/tuomaseerola/barriers2datasharing
+  title: "Barriers to data sharing in music psychology"
+  repo-url: https://github.com/tuomaseerola/barriers2datasharing
+  site-url: "https://tuomaseerola.github.io/barriers2datasharing/"
+  search: true
+  navbar:
+    left:
+      - href: index.qmd
+      - icon: github
+        href: https://github.com/tuomaseerola/barriers2datasharing/
+        aria-label: GitHub
+  page-navigation: true
+  back-to-top-navigation: true
+format:
+  html:
+    theme: materia # lumen, pulse, yeti, zephyr
+    css: styles.css
+    toc: false
+    page-layout: full

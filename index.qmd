@@ -1,0 +1,83 @@
+---
+title: "Barriers to data sharing in music psychology"
+author: "Tuomas Eerola"
+format: html
+---
+
+This repository contains the survey data concerning barriers to data sharing in music psychology. The survey replicates the work by Houtkoop, Chambers, Macleod, Bishop, Nichols, and Wagenmaker ([2018](https://doi.org/10.1177/2515245917751886)), who surveyed why scholars (psychologists) may not want to share the data.
+
+```{r}
+#| id: load-libraries
+#| echo: false
+#| warning: false
+#| message: false
+
+source('scr/libraries.R')
+source('scr/read_custom_qualtrics.R')
+options(scipen=999)
+
+```
+
+## Read data
+
+```{r}
+#| id: data
+#| echo: true
+
+fn <- "data/Barriers+for+data+sharing+in+music+psychology_September+13,+2025_00.51_LABELS.csv"
+Data <- read_custom_qualtrics(filename = fn, format = "labels")
+source('scr/rename_variables.R')
+
+```
+
+### Descriptives
+
+```{r}
+#| id: describe
+#| echo: true
+#| warning: false
+#| message: false
+#| fig.height: 4
+#| fig.width: 5
+
+source('scr/describe_data.R')
+
+```
+
+### Figures
+
+
+```{r}
+#| id: figures-main
+#| echo: true
+#| fig.height: 9
+#| fig.width: 12
+#| warning: false
+#| message: false
+
+source('scr/figure_main.R')
+
+```
+
+### More figures
+```{r}
+#| id: figures-main2
+#| echo: true
+#| fig.height: 4
+#| fig.width: 12
+
+print(g2)
+print(g3)
+
+```
+
+### Figures (supporting)
+
+```{r}
+#| id: figures-supporting
+#| echo: true
+
+source('scr/figure_supporting.R')
+
+```
+
