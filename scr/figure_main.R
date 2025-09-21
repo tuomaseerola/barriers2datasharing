@@ -41,6 +41,7 @@ main_barriers <- expression(atop(
 #pdf("figure2.pdf", width=10)
 g1 <- plot(likert(barriers), ordered = T) +
   ggtitle(main_barriers) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 print(g1)
 #dev.off()
@@ -75,17 +76,25 @@ for (i in 1:ncol(desirability)) {
 
 title_desirability <- "Desirability of Data Sharing"
 #pdf("figure1A.pdf", width = 10, height = 4)
+library(RColorBrewer)
 g2 <- plot(
   likert(desirability),
-  #  centered = TRUE,
+  centered = FALSE,
   #  center = 2.5,
-  ordered = TRUE
+  ordered = TRUE,
+  plot.percent.neutral = FALSE
 ) +
+  scale_fill_manual(
+    name = "Response",
+    values = brewer.pal(n = 5, "RdYlBu"),
+    breaks = choices
+  ) +
   ggtitle(title_desirability) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
-#print(g2)
+print(g2)
 
-#Figure 1B: Profitability
+#### Figure 1B: Profitability -------
 profitability <- as.data.frame(Data[, 63:64])
 colnames(profitability) <- c(
   researchfield_profit = "To what extent do you think your research field would profit from data sharing?",
@@ -111,9 +120,10 @@ title_profitability <- "Profitability of Data Sharing"
 #pdf("figure1B.pdf", width = 10, height = 4)
 g3 <- plot(likert(profitability), ordered = TRUE) +
   ggtitle(title_profitability) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
-#print(g3)
+print(g3)
 
 ########Plots of barriers data########
 
@@ -164,7 +174,7 @@ g3 <- plot(likert(profitability), ordered = TRUE) +
 #   theme(plot.title = element_text(hjust = 0.5))
 # dev.off()
 
-#Figure 3A: Researchers' own fears
+#### Figure 3A: Researchers' own fears ---------
 self <- as.data.frame(Data[, 33:38])
 
 names(self) <- c(
@@ -197,11 +207,12 @@ main_self <- expression(atop(
 #pdf("figure3A.pdf", width = 10)
 g4 <- plot(likert(self), ordered = T) +
   ggtitle(main_self) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
 print(g4)
 
-#Figure 3B: Other researchers fears
+#### Figure 3B: Other researchers fears -----------
 others <- as.data.frame(Data[, 27:32])
 
 colnames(others) <- c(
@@ -237,6 +248,7 @@ main_others <- expression(atop(
 #pdf("figure3B.pdf", width = 10)
 g5 <- plot(likert(others), ordered = T) +
   ggtitle(main_others) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 # dev.off()
 print(g5)
@@ -296,7 +308,9 @@ main_preconditions <- expression(atop(
 #pdf("figure4.pdf", paper = 'a4r', width = 24, height = 18)
 #par(mar = c(6.5, 8, 1.5, 12))
 g6 <- plot(likert(preconditions), ordered = T) +
+  #  scale_fill_manual(values = brewer.pal(n = 7,"RdYlBu"), breaks = choices)+
   ggtitle(main_preconditions) +
+  theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
 print(g6)

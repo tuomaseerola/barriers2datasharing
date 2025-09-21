@@ -19,14 +19,14 @@
 # library(polycor)
 
 required_lib = c(
-  "foreign",
-  "magrittr",
+  "tidyverse",
   "readr",
   "likert",
   "Hmisc",
-  "car",
   "here"
 ) # insert here the required libraries
+
+# magrittr
 
 # install the necessary libraries if they have not been installed into this machine
 

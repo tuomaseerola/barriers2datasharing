@@ -37,15 +37,15 @@ source('scr/rename_variables.R')
 #| echo: true
 #| warning: false
 #| message: false
-#| fig.height: 4
-#| fig.width: 5
+#| fig.height: 7
+#| fig.width: 9
+#| output: asis
 
 source('scr/describe_data.R')
 
 ```
 
-### Figures
-
+### Main barriers
 
 ```{r}
 #| id: figures-main
@@ -59,23 +59,27 @@ source('scr/figure_main.R')
 
 ```
 
-### More figures
+### Desirability of sharing?
+
 ```{r}
 #| id: figures-main2
 #| echo: true
-#| fig.height: 4
+#| fig.height: 5
 #| fig.width: 12
+#| eval: true
 
 print(g2)
 print(g3)
 
 ```
 
-### Figures (supporting)
+### Share in future and benefits of sharing?
 
 ```{r}
 #| id: figures-supporting
 #| echo: true
+#| fig.height: 4.5
+#| fig.width: 12
 
 source('scr/figure_supporting.R')
 
