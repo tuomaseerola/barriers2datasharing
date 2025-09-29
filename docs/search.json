@@ -4,13 +4,13 @@
     "href": "index.html",
     "title": "Barriers to data sharing in music psychology",
     "section": "",
-    "text": "This repository contains the survey data concerning barriers to data sharing in music psychology. The survey replicates the work by Houtkoop, Chambers, Macleod, Bishop, Nichols, and Wagenmaker (2018), who surveyed why scholars (psychologists) may not want to share the data."
+    "text": "This repository contains the survey data concerning barriers to data sharing in music psychology. The survey replicates the work by Houtkoop, Chambers, Macleod, Bishop, Nichols, and Wagenmaker (2018), who surveyed why scholars (psychologists) may not want to share the data.\nLast run: 29/9/2025"
   },
   {
     "objectID": "index.html#read-data",
     "href": "index.html#read-data",
     "title": "Barriers to data sharing in music psychology",
     "section": "Read data",
-    "text": "Read data\n\nfn &lt;- \"data/Barriers+for+data+sharing+in+music+psychology_September+13,+2025_00.51_LABELS.csv\"\nData &lt;- read_custom_qualtrics(filename = fn, format = \"labels\")\n\n[1] \"Number of participants in the data: 18\"\n[1] \"Number of participants after filtering incomplete/previews: 16\"\n\nsource('scr/rename_variables.R')\n\n\nDescriptives\nsource('scr/describe_data.R')\n[1] “N = 16” [1] “Age (M) = 41.56” [1] “Age (SD) = 10.3” [1] “Gender: 50% females” [1] “” [1] “” [1] “Years active (M) = 13.19 SD = 8.42” [1] “”\n\n\n\ncareerstage\nM\nSD\n\n\n\n\nPhD Student\n2.50\n2.12\n\n\nPost Doc\n10.50\n7.78\n\n\nAssistant Professor\n8.33\n2.31\n\n\nAssociate Professor / Reader\n14.00\n4.24\n\n\nProfessor\n27.00\n2.00\n\n\nOther\n9.00\nNA\n\n\n\n\n\n\nMain barriers\n\nsource('scr/figure_main.R')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesirability of sharing?\n\nprint(g2)\n\n\n\n\n\n\n\nprint(g3)\n\n\n\n\n\n\n\n\n\n\nShare in future and benefits of sharing?\n\nsource('scr/figure_supporting.R')"
+    "text": "Read data\n\nfn &lt;- \"data/Barriers29092025.csv\"\nData &lt;- read_custom_qualtrics(filename = fn, format = \"labels\")\n\n[1] \"Number of participants in the data: 61\"\n[1] \"Number of participants after filtering incomplete/previews: 51\"\n\nsource('scr/rename_variables.R')\n\n\nDescriptives\nsource('scr/describe_data.R')\nN = 51\nAge (M) = 43.14\nAge (SD) = 10.68\nGender: 49.02% females\nYears active (M) = 15 SD = 9.7\n\n\n\ncareerstage\nM\nSD\n\n\n\n\nPhD Student\n4.22\n1.79\n\n\nPost Doc\n9.75\n4.65\n\n\nAssistant Professor\n9.43\n1.72\n\n\nAssociate Professor / Reader\n18.07\n7.08\n\n\nProfessor\n25.00\n11.13\n\n\nOther\n17.00\n7.00\n\n\n\nprint(fig_careerstage)\n\nprint(fig_shared)\n\n\n\nMain barriers\n\nsource('scr/figure_main.R')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDesirability of sharing?\n\nprint(g2)\n\n\n\n\n\n\n\nprint(g3)\n\n\n\n\n\n\n\n\n\n\nShare in future and benefits of sharing?\n\nsource('scr/figure_supporting.R')"
   }
 ]

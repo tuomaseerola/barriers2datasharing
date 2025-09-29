@@ -92,7 +92,7 @@ g2 <- plot(
   ggtitle(title_desirability) +
   theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
-print(g2)
+#print(g2)
 
 #### Figure 1B: Profitability -------
 profitability <- as.data.frame(Data[, 63:64])
@@ -123,7 +123,7 @@ g3 <- plot(likert(profitability), ordered = TRUE) +
   theme_classic(base_size = 14) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
-print(g3)
+#print(g3)
 
 ########Plots of barriers data########
 

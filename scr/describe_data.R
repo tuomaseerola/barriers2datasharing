@@ -6,23 +6,25 @@
 #
 # -------------------------------------
 # Number of respondents
-print(paste("N =", nrow(Data)))
+cat(paste("N =", nrow(Data)))
 
 # Age and gender
-
-print(paste("Age (M) =", round(mean(Data$age), 2)))
-print(paste("Age (SD) =", round(sd(Data$age), 2)))
-print(paste0(
+cat("\n\n")
+cat(paste("Age (M) =", round(mean(Data$age,na.rm=T), 2)))
+cat("\n\n")
+cat(paste("Age (SD) =", round(sd(Data$age,na.rm=T), 2)))
+cat("\n\n")
+cat(paste0(
   "Gender: ",
-  100 * (sum(Data$sex == "Female") / nrow(Data)),
+  round(100 * (sum(Data$sex == "Female") / nrow(Data)),2),
   "% females"
 ))
 
-print("\n\n")
+cat("\n\n")
 
 S <- dplyr::summarise(dplyr::group_by(Data, careerstage), N = n())
 
-g <- ggplot(S, aes(x = careerstage, y = N)) +
+fig_careerstage <- ggplot(S, aes(x = careerstage, y = N)) +
   geom_col(fill = "#D8B365", color = "black") +
   coord_flip() +
   xlab("Career stage") +
@@ -30,19 +32,19 @@ g <- ggplot(S, aes(x = careerstage, y = N)) +
   scale_x_discrete(expand = c(0.01, 0.01)) +
   scale_y_continuous(expand = c(0.001, 0.001)) +
   theme_classic(base_size = 14)
-print(g)
+#print(fig_careerstage)
 
 
 #### Years active ------
-print("\n\n")
-print(paste(
+
+cat(paste(
   "Years active (M) =",
   round(mean(Data$years_active), 2),
   "SD =",
   round(sd(Data$years_active), 2)
 ))
 
-print("\n\n")
+cat("\n\n")
 
 S <- dplyr::summarise(
   dplyr::group_by(Data, careerstage),
@@ -59,14 +61,14 @@ Data$careerstage_binary <- cut(
 
 #### "How often shared in online repository" -----
 
-gg1 <- ggplot(Data, aes(x = shared_data_in_past)) +
-  geom_histogram(binwidth = 10, fill = "grey70", color = "black") +
-  scale_x_continuous(breaks = seq(0, 100, by = 10)) +
+fig_shared <- ggplot(Data, aes(x = shared_data_in_past)) +
+  geom_histogram(binwidth = 20, fill = "grey70", color = "black") +
+  scale_x_continuous(breaks = seq(0, 100, by = 20),labels=paste0(seq(0, 100, by = 20),"%")) +
   xlab(expression(atop(
-    "'How many times have you shared data in an online repository, approximately?",
+    "'What proportion (0-100%) of your studies have you shared data in an online repository, approximately?",
     paste(
       "State in terms of percentages of total number of articles published.'"
     )
   ))) +
   theme_classic(base_size = 14)
-print(gg1)
+#print(fig_shared)

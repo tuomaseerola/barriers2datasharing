@@ -86,7 +86,10 @@ names(Data)[names(Data) == "Q10.4"] <- "promote" # likert
 
 #### change some integer variables to integers
 Data$shared_data_in_past <- as.integer(Data$shared_data_in_past)
-Data$age <- as.numeric(Data$age)
+Data$age <- stringr::str_replace_all(Data$age, "> 18","40")
+Data$age <- stringr::str_replace_all(Data$age, "[\\+\\|| ]","")
+Data$age
+Data$age <- invisible(as.numeric(Data$age))
 Data$years_active <- as.numeric(Data$years_active)
 
 
@@ -101,3 +104,4 @@ Data$careerstage <- factor(
     "Other"
   )
 )
+

@@ -6,6 +6,8 @@ format: html
 
 This repository contains the survey data concerning barriers to data sharing in music psychology. The survey replicates the work by Houtkoop, Chambers, Macleod, Bishop, Nichols, and Wagenmaker ([2018](https://doi.org/10.1177/2515245917751886)), who surveyed why scholars (psychologists) may not want to share the data.
 
+Last run: _29/9/2025_
+
 ```{r}
 #| id: load-libraries
 #| echo: false
@@ -23,11 +25,9 @@ options(scipen=999)
 ```{r}
 #| id: data
 #| echo: true
-
-fn <- "data/Barriers+for+data+sharing+in+music+psychology_September+13,+2025_00.51_LABELS.csv"
+fn <- "data/Barriers29092025.csv"
 Data <- read_custom_qualtrics(filename = fn, format = "labels")
 source('scr/rename_variables.R')
-
 ```
 
 ### Descriptives
@@ -42,6 +42,8 @@ source('scr/rename_variables.R')
 #| output: asis
 
 source('scr/describe_data.R')
+print(fig_careerstage)
+print(fig_shared)
 
 ```
 
