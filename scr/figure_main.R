@@ -1,5 +1,6 @@
 # figure_barriers.R
 #Figure 2: Barriers
+bs <- 16 # base font size for figures
 
 barriers <- Data[, 11:25]
 barriers <- data.frame(barriers)
@@ -41,7 +42,7 @@ main_barriers <- expression(atop(
 #pdf("figure2.pdf", width=10)
 g1 <- plot(likert(barriers), ordered = T) +
   ggtitle(main_barriers) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 print(g1)
 #dev.off()
@@ -90,7 +91,7 @@ g2 <- plot(
     breaks = choices
   ) +
   ggtitle(title_desirability) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 #print(g2)
 
@@ -120,7 +121,7 @@ title_profitability <- "Profitability of Data Sharing"
 #pdf("figure1B.pdf", width = 10, height = 4)
 g3 <- plot(likert(profitability), ordered = TRUE) +
   ggtitle(title_profitability) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
 #print(g3)
@@ -207,7 +208,7 @@ main_self <- expression(atop(
 #pdf("figure3A.pdf", width = 10)
 g4 <- plot(likert(self), ordered = T) +
   ggtitle(main_self) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
 print(g4)
@@ -248,7 +249,7 @@ main_others <- expression(atop(
 #pdf("figure3B.pdf", width = 10)
 g5 <- plot(likert(others), ordered = T) +
   ggtitle(main_others) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 # dev.off()
 print(g5)
@@ -310,7 +311,7 @@ main_preconditions <- expression(atop(
 g6 <- plot(likert(preconditions), ordered = T) +
   #  scale_fill_manual(values = brewer.pal(n = 7,"RdYlBu"), breaks = choices)+
   ggtitle(main_preconditions) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 #dev.off()
 print(g6)

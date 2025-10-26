@@ -5,6 +5,8 @@
 # Notes:
 #
 # -------------------------------------
+bs <- 16 # base font size for figures
+
 # Number of respondents
 cat(paste("N =", nrow(Data)))
 
@@ -31,7 +33,7 @@ fig_careerstage <- ggplot(S, aes(x = careerstage, y = N)) +
   ylab("Count") +
   scale_x_discrete(expand = c(0.01, 0.01)) +
   scale_y_continuous(expand = c(0.001, 0.001)) +
-  theme_classic(base_size = 14)
+  theme_classic(base_size = bs)
 #print(fig_careerstage)
 
 
@@ -62,7 +64,7 @@ Data$careerstage_binary <- cut(
 #### "How often shared in online repository" -----
 
 fig_shared <- ggplot(Data, aes(x = shared_data_in_past)) +
-  geom_histogram(binwidth = 20, fill = "grey70", color = "black") +
+  geom_histogram(binwidth = 20, color = "black",fill="lightblue") +
   scale_x_continuous(breaks = seq(0, 100, by = 20),labels=paste0(seq(0, 100, by = 20),"%")) +
   xlab(expression(atop(
     "'What proportion (0-100%) of your studies have you shared data in an online repository, approximately?",
@@ -70,5 +72,5 @@ fig_shared <- ggplot(Data, aes(x = shared_data_in_past)) +
       "State in terms of percentages of total number of articles published.'"
     )
   ))) +
-  theme_classic(base_size = 14)
+  theme_classic(base_size = bs-2)
 #print(fig_shared)

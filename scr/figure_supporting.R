@@ -1,4 +1,5 @@
 # figure_supporting.R
+bs <- 16 # base font size for figures
 
 #### Share data in future" ------------
 share <- data.frame(share = Data$likelyshare)
@@ -14,9 +15,15 @@ share$share <- factor(
 )
 colnames(share) <- "Likeliness of sharing data in the future"
 
+xlabel <- expression(atop(
+  "'How likely are you to share data in the future'")
+)
+
+
 gg2 <- plot(likert(share), ordered = T) +
-  #  ggtitle(main_others) +
-  theme_classic(base_size = 14) +
+  ggtitle(xlabel) +
+  scale_x_discrete(labels="") +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 print(gg2)
 
@@ -42,7 +49,8 @@ xlabel <- expression(atop(
 
 gg3 <- plot(likert(share_current_system), ordered = T) +
   ggtitle(xlabel) +
-  theme_classic(base_size = 14) +
+  scale_x_discrete(labels="") +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 print(gg3)
 
@@ -67,12 +75,16 @@ xlabel <- expression(atop(
 
 gg4 <- plot(likert(legal), ordered = T) +
   ggtitle(xlabel) +
-  theme_classic(base_size = 14) +
+  theme_classic(base_size = bs) +
+  scale_x_discrete(labels="") +
   theme(plot.title = element_text(hjust = 0.5))
 print(gg4)
 
 
 #### greatest benefit -----------
+# fix one missing careerstage_binary
+Data$careerstage_binary[is.na(Data$careerstage_binary)] <- "Senior"
+Data$careerstage_binary<-factor(Data$careerstage_binary)
 
 benefit <- data.frame(options = Data$greatestbenefit, careerstage_binary = Data$careerstage_binary)
 benefit$options <- factor(
@@ -91,7 +103,7 @@ benefit$options <- factor(
   )
 )
 B <- dplyr::summarise(dplyr::group_by(benefit, options, careerstage_binary), benefit = n(),.groups="drop")
-
+B<-drop_na(B)
 
 gg5 <- ggplot(B, aes(y=benefit, x=reorder(options,benefit),fill=careerstage_binary))+
   geom_col(position = "dodge",color="black")+
@@ -100,7 +112,7 @@ gg5 <- ggplot(B, aes(y=benefit, x=reorder(options,benefit),fill=careerstage_bina
   xlab("") +
   coord_flip() +
   scale_fill_brewer(palette = "Set3", name = "Career stage") +
-  scale_y_continuous(expand = c(0.01, 0.01),breaks = seq(0,20,by=3)) +
-  theme_classic(base_size = 14) +
+  scale_y_continuous(expand = c(0.01, 0.01),breaks = seq(0,40,by=3)) +
+  theme_classic(base_size = bs) +
   theme(plot.title = element_text(hjust = 0.5))
 print(gg5)
