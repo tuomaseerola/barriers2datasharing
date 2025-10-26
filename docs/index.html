@@ -187,20 +187,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [1] "Number of participants after filtering incomplete/previews: 107"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/rename_variables.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in eval(ei, envir): NAs introduced by coercion
-Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
-</div>
 </div>
 <section id="descriptives" class="level3">
 <h3 class="anchored" data-anchor-id="descriptives">Descriptives</h3>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/describe_data.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/describe_data.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>N = 107</p>
 <p>Age (M) = 44.21</p>
 <p>Age (SD) = 10.42</p>
 <p>Gender: 49.53% females</p>
-<p>Years active (M) = NA SD = NA</p>
+<p>Years active (M) = 15.98 SD = 9.42</p>
 <table class="caption-top table">
+<caption>Years active by career stage</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">careerstage</th>
@@ -226,8 +223,8 @@ Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Associate Professor / Reader</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">18.94</td>
+<td style="text-align: right;">6.39</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Professor</td>
@@ -241,17 +238,15 @@ Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig_careerstage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig_careerstage)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="index_files/figure-html/describe-1.png" class="img-fluid" width="864"></p>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig_shared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fig_shared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="index_files/figure-html/describe-2.png" class="img-fluid" width="864"></p>
 </section>
 <section id="main-barriers" class="level3">
 <h3 class="anchored" data-anchor-id="main-barriers">Main barriers</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/figure_main.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/figure_main.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -285,7 +280,7 @@ Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
 <section id="desirability-of-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="desirability-of-sharing">Desirability of sharing?</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -293,7 +288,7 @@ Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -306,7 +301,7 @@ Warning in eval(ei, envir): NAs introduced by coercion</code></pre>
 <section id="share-in-future-and-benefits-of-sharing" class="level3">
 <h3 class="anchored" data-anchor-id="share-in-future-and-benefits-of-sharing">Share in future and benefits of sharing?</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/figure_supporting.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">'scr/figure_supporting.R'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

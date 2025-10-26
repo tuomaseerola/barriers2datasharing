@@ -18,7 +18,7 @@ cat(paste("Age (SD) =", round(sd(Data$age,na.rm=T), 2)))
 cat("\n\n")
 cat(paste0(
   "Gender: ",
-  round(100 * (sum(Data$sex == "Female") / nrow(Data)),2),
+  round(100 * (sum(Data$sex == "Female",na.rm=T) / nrow(Data)),2),
   "% females"
 ))
 
@@ -41,19 +41,19 @@ fig_careerstage <- ggplot(S, aes(x = careerstage, y = N)) +
 
 cat(paste(
   "Years active (M) =",
-  round(mean(Data$years_active), 2),
+  round(mean(Data$years_active,na.rm = T), 2),
   "SD =",
-  round(sd(Data$years_active), 2)
+  round(sd(Data$years_active,na.rm = T), 2)
 ))
 
 cat("\n\n")
 
 S <- dplyr::summarise(
   dplyr::group_by(Data, careerstage),
-  M = mean(years_active),
-  SD = sd(years_active)
+  M = mean(years_active,na.rm=T),
+  SD = sd(years_active,na.rm=T)
 )
-print(knitr::kable(S, digits = 2))
+print(knitr::kable(S, digits = 2,caption = "Years active by career stage"))
 
 Data$careerstage_binary <- cut(
   Data$years_active,
@@ -63,8 +63,8 @@ Data$careerstage_binary <- cut(
 
 #### "How often shared in online repository" -----
 
-fig_shared <- ggplot(Data, aes(x = shared_data_in_past)) +
-  geom_histogram(binwidth = 20, color = "black",fill="lightblue") +
+fig_shared <- ggplot(Data, aes(x = shared_data_in_past,na.rm = TRUE)) +
+  geom_histogram(bins = 5, color = "black",fill="lightblue",na.rm = TRUE) +
   scale_x_continuous(breaks = seq(0, 100, by = 20),labels=paste0(seq(0, 100, by = 20),"%")) +
   xlab(expression(atop(
     "'What proportion (0-100%) of your studies have you shared data in an online repository, approximately?",

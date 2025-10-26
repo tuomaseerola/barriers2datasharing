@@ -25,6 +25,8 @@ options(scipen=999)
 ```{r}
 #| id: data
 #| echo: true
+#| warning: false
+#| message: false
 fn <- "data/Barriers29092025.csv"
 fn <- "data/Barriers26102025.csv"
 Data <- read_custom_qualtrics(filename = fn, format = "labels")
